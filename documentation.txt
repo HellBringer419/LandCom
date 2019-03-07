@@ -1,0 +1,36 @@
+## Welcome to detailed documemtation
+
+### Work Flow:
+
+1.	Suppose, if there is a seller who wants to sell his property. 
+
+2.	Then First, the person has to register himself on the website and give the proper details about his Pan card and Aadhar card for the authentication process. 
+
+3.	In the authentication process, an OTP (one-time password) would be sent to the registered mobile number of the person to validate that this person is a valid user and not a fictitious one. 
+
+4.	Now, after being authenticated the user can post his property on sale himself or can hire a real estate agent to sell his property which is accomplished by the smart contract and then the details would be stored in the Blockchain for that specific transaction. 
+
+5.	Now at the buyer’s end, he is also supposed to register first and then get authenticated as the seller did. 
+
+6.	And now he can choose a land from the online entries or can hire an agent to find him one. 
+
+7.	As the buyer get a proper land for himself to buy, he then has to go through an additional prologue to overcome the ‘Benami’ Transaction issue. 
+
+8.	Here, the Pan card details would be used to get the account summary of the buyer or if it’s a loan-based transaction, then his assets amount would be calculated which then would be feed in the Blockchain and using certain algorithms and the backtracking method we can find that is the person is capable of buying the land or not. 
+
+9.	If not, then the person might have any other source of illegal income, which would be counted as black money and this transaction would be declined. After the decline of the transaction a notification would be sent to the concerned officer of the income tax department for further processes. 
+
+10.	Now if the person is capable of buying the land then again, a check will be generated that is the person is buying the land for himself or for someone else if it is for himself then it is Ok, or else all the 6 clauses of the Benami Transactions (Prohibition) Act, 1988 will be checked and if found guilty then the transaction would be declined. 
+
+11.	If all goes accordingly then the seller is notified about the buyer and a deal would happen on the agreed sum of money using the smart contracts and then the details of the transaction would be stored in the Blockchain, which further cannot be tampered. 
+    (In the meantime a sub-panel of 3 admins and 1 super-admin will verify the process). 
+
+12.	And this transaction details or formally the leisure will be public for the participating parties so that the land registry officials, the banks, the insurance companies, the electricity, and the water department can refer to this verified transaction and they also update their records as per as their need, which makes this system less fussy and time efficient.
+
+### Usage:
+
+1. Get a running private block chain (preferably Ganache) and send the private keys to the admins and super-admin(s). (We don't recommend more than one super-admin)
+
+2. Upload all past data about the existing land and digitalize (tokenize) them.
+
+3. Ready for usage, user authenticates -> gets an account -> able to buy and/or sell land ... Done !
