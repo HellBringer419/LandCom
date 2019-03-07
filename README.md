@@ -23,7 +23,7 @@ Syntax highlighted code block
 
 **Bold** and _Italic_ and `Code` text
 
-[Link](https://github.com/HellBringer419/LandCom/blob/master/documentation.txt) and ![Image](src)
+[https://github.com/HellBringer419/LandCom/blob/master/documentation.txt](url) and ![Image](src)
 ```
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
