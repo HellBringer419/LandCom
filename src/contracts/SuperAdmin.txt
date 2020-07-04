@@ -1,0 +1,104 @@
+pragma solidity ^0.5.0;
+
+// interface for Land
+contract Land {
+    constructor (uint _l_id) public { }
+
+    function addLand() public payable returns (bool) { }
+
+    function registerLand(uint _id) public payable returns (bool) { }
+
+    function getPostedLand() public view returns(int){ }
+
+    function isVerfied() public pure returns (bool) { }
+    
+}
+
+
+// interface Client
+contract Client {
+    //function
+    constructor() public { }
+
+    function addNewUser(string memory _c_id, string memory _c_pass,
+    string memory _c_cpass, string memory _pan,string memory _aadhar, 
+    bool _caste, string memory _name, string memory _email, 
+    uint64 _phno) public payable returns (bool){ }
+
+    function registerLand(uint _id) public payable returns (bool){ }
+
+    function sellLand() public payable returns (bool){ }
+
+    function buyLand() public payable returns (bool){ }
+
+    function checkLiable() public payable returns (bool){ }
+
+    function isClientVerified() private pure returns (bool){ }
+
+    // Upload Documents, changing it to true
+    function uploadDocd1() public pure returns (bool) { }
+
+    function uploadDocd2() public pure returns (bool) { }
+
+    function uploadDocd3() public pure returns (bool) { }
+
+    function uploadDocd4() public pure returns (bool) { }
+
+    //Checking the STEP wise Authentication
+
+    function Auth1() public payable returns (bool) { }
+
+    function Auth2() public payable returns (bool) { }
+
+    function Auth3() public payable returns (bool) { }
+
+}
+
+// interface Admin
+contract Admin {
+
+    function addNewAdmin(string memory _a_id, string memory _a_pass) public payable returns (bool){ }
+
+    function getTransaction() public payable returns (bool){ }
+
+    function isAdminVerified(string memory _code, string memory _a_id, string memory _a_pass) internal returns (bool){ }
+
+    function stringsEqual(string memory a, string memory b) public view returns (bool) { }
+
+    function RegistryAuth() public payable returns (int) { }
+
+    function checkRegistryAuth() public payable returns (bool) { }
+
+}
+
+contract SuperAdmin {
+    
+    struct SuperAdminDetails{
+        string name;
+        string email;
+        uint64 phno;
+    }
+    
+    string sp_id;
+    string sp_pass;
+
+    //functions
+    function addNewAdmin(string memory _sp_id, string memory _sp_pass) public payable returns (bool){
+        sp_id = _sp_id;
+        sp_pass = _sp_pass;
+    }
+
+    //Status of the Blockchain (All the recorded land details) in the chain
+    function getTransaction() public payable returns (bool){
+        return true;
+    }
+
+    function isSuperSAdminVerified() private pure returns (bool){
+        return true;
+    }
+
+    function finalRegistryAuth() public payable returns (bool) {
+        return true;
+    }
+
+}

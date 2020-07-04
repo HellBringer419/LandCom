@@ -1,0 +1,154 @@
+pragma solidity ^0.5.0;
+
+// interface for Land
+contract Land {
+    constructor (uint _l_id) public { }
+
+    function addLand() public payable returns (bool) { }
+
+    function registerLand(uint _id) public payable returns (bool) { }
+
+    function getPostedLand() public view returns(int){ }
+
+    function isVerfied() public pure returns (bool) { }
+    
+}
+
+
+// interface Client
+contract Client {
+    //function
+    constructor() public { }
+
+    function addNewUser(string memory _c_id, string memory _c_pass,
+    string memory _c_cpass, string memory _pan,string memory _aadhar, 
+    bool _caste, string memory _name, string memory _email, 
+    uint64 _phno) public payable returns (bool){ }
+
+    function registerLand(uint _id) public payable returns (bool){ }
+
+    function sellLand() public payable returns (bool){ }
+
+    function buyLand() public payable returns (bool){ }
+
+    function checkLiable() public payable returns (bool){ }
+
+    function isClientVerified() private pure returns (bool){ }
+
+    // Upload Documents, changing it to true
+    function uploadDocd1() public pure returns (bool) { }
+
+    function uploadDocd2() public pure returns (bool) { }
+
+    function uploadDocd3() public pure returns (bool) { }
+
+    function uploadDocd4() public pure returns (bool) { }
+
+    //Checking the STEP wise Authentication
+
+    function Auth1() public payable returns (bool) { }
+
+    function Auth2() public payable returns (bool) { }
+
+    function Auth3() public payable returns (bool) { }
+
+}
+
+// contract Admin
+contract Admin {
+       
+    string private a_id;
+    string private a_pass;
+    string private a_cpass;
+    string private code;
+    string private dept;
+
+    int64 private requestStatus;
+
+    //Mapping of admin
+    struct AdminDetail{
+        string name;
+        string email;
+        uint256 phno;
+    }
+
+    mapping(address => AdminDetail) AdminDetails;
+    address[] public AdminDetailAccounts;
+
+    function setAdminDetail(address _address, string memory _name, string memory _email, uint256 _phno) public {
+        AdminDetail memory _AdminDetail = AdminDetails[_address];
+
+        _AdminDetail.name = _name;
+        _AdminDetail.email = _email;
+        _AdminDetail.phno = _phno;
+    
+        AdminDetailAccounts.push(_address) -1;
+
+    } 
+    
+    function getAdminDetail() view public returns (address[] memory){
+        return AdminDetailAccounts;
+    }
+
+    function getAdminDetails(address _address) view public returns (string memory, string memory, uint256){
+        return (AdminDetails[_address].name, AdminDetails[_address].email, AdminDetails[_address].phno); 
+    }
+
+    function countAdminDetails() view public returns(uint){
+        return AdminDetailAccounts.length;
+    }
+
+    //End of Mapping of admin
+
+    //functions
+    function addNewAdmin(string memory _a_id, string memory _a_pass) public payable returns (bool){
+        a_id = _a_id;
+        a_pass = _a_pass;
+        return true;
+    }
+
+    function getTransaction() public payable returns (bool){
+        return true;
+    }
+
+    function isAdminVerified(string memory _code, string memory _a_id, string memory _a_pass) internal returns (bool){
+        if(stringsEqual(code, _code)) {   
+            addNewAdmin(_a_id,_a_pass);
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    function stringsEqual(string memory a, string memory b) public view returns (bool) {
+        bytes memory a = bytes(a);
+        bytes memory b = bytes(b);
+
+        // Compare two strings quickly by length to try to avoid detailed loop comparison
+        if (a.length != b.length)
+            return false;
+
+        // Compare two strings in detail Bit-by-Bit
+        for (uint i = 0; i < a.length; i++)
+            if (a[i] != b[i])
+                return false;
+
+        // Byte values of string are the same
+        return true;
+    }    
+
+    function RegistryAuth() public payable returns (int){
+        if(checkRegistryAuth()) {
+            return 1;
+        }
+        else {
+            return 0;
+        }
+
+    }
+
+    function checkRegistryAuth() public payable returns (bool) {
+        return true;
+    }
+}

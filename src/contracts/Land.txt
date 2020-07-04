@@ -1,0 +1,79 @@
+pragma solidity ^0.5.0;
+
+contract Land {
+    // user-def types
+    enum LandType {
+        disputed, industrial, agriculture, residential, non_transferable
+    }
+
+    // members
+    uint public id;
+    uint private areaInSq_mm;
+    int public priceInPaise;
+    uint256 private latitudeInNano_m;
+    uint256 private longitudeInNano_m;
+    bool private isSelfOwned;
+    bool private isFullyPayed;
+   // LandType private types;
+    int private postedLand = 0;
+
+    // bool private isVerified;
+    string[] private _propId;
+    Area private addresses;
+    address private owner;
+
+    //mapping(uint => Land) public LandMap;
+    //Mapping of admin
+   struct Area {
+        uint pin;
+        string district; 
+        string state;
+    }
+
+    mapping(address => Area) Areas;
+    address[] public AreaAccounts;
+
+    // function setArea(address _address, uint _pin, string memory _district, string memory _state) public {
+    //     Area memory _Area = Area[_address];
+
+    //     _Area.pin = _pin;
+    //     _Area.district = _district;
+    //     _Area.state = _state;
+    
+    //     Area.push(_address) -1;
+
+    // } 
+    
+    function getArea() view public returns (address[] memory){
+        return AreaAccounts;
+    }
+
+    // function getAreas(address _address) view public returns ( uint256, string memory, string memory){
+    //     return (Areas[_address].pin, Area[_address].district, Area[_address].state); 
+    // }
+
+    function countAreas() view public returns(uint){
+        return AreaAccounts.length;
+    }
+
+    //End of Mapping of admin
+
+    // map all transcations
+
+    function registerLand(uint _id) public payable returns (bool) {
+        id = _id;
+        owner = msg.sender;
+        postedLand = postedLand + 1;
+        return true;
+    }
+
+    function getPostedLand() public view returns(int){
+        return postedLand;
+    }
+
+    // future scope
+    function isVerfied() public pure returns (bool) {
+        return true;
+    }
+    
+}

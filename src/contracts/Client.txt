@@ -1,0 +1,162 @@
+pragma solidity ^0.5.0;
+
+// interface for Land
+contract Land2 {
+    constructor (uint _l_id) public { }
+
+    function addLand() public payable returns (bool) { }
+
+    function registerLand(uint _id) public payable returns (bool) { }
+
+    function getPostedLand() public view returns(int){ }
+
+    function isVerfied() public pure returns (bool) { }
+    
+}
+
+// Client contract
+ contract Client {
+//     struct Land {
+//         uint id;
+//         uint areaInSq_mm;
+//         int priceInPaise;
+//         uint256 latitudeInNano_m;
+//         uint256 longitudeInNano_m;
+//         bool isSelfOwned;
+//         bool isFullyPayed;
+//     // LandType private types;
+//         int postedLand;
+
+//         // bool private isVerified;
+//         string[] _propId;
+//         // Address private addresses;
+//         address owner;
+//     }
+
+ struct ClientDetails{
+     string name;
+     string email;
+     uint64 phno;
+ }
+
+//members
+    string private c_id;
+    string private c_pass;
+    string private pan;
+    string private aadhar;
+    bool private caste;
+    bool private isLiable;
+    
+   // Land private ob;
+
+    ClientDetails private cd;
+
+//Upload Documents
+    bool private d1 = false;
+    bool private d2 = false;
+    bool private d3 = false;
+    bool private d4 = false;
+
+//For Authentication Steps
+    bool private a1 = false;
+    bool private a2 = false;
+    bool private a3 = false;
+
+    //function
+    constructor() public {
+
+    }
+
+    function addNewUser(string memory _c_id, string memory _c_pass,
+    string memory _c_cpass, string memory _pan,string memory _aadhar, 
+    bool _caste, string memory _name, string memory _email, 
+    uint64 _phno) public payable returns (bool){
+    
+        c_id = _c_id;
+        c_pass = _c_pass;
+        aadhar = _aadhar;
+        caste = _caste;
+        cd = ClientDetails(_name, _email, _phno);
+
+        return true;
+    }
+
+    function registerLand(uint _id) public payable returns (bool){
+        if((d1==true)&&(d2==true)&&(d3==true)&&(d4==true))
+        {
+            // return ob.registerLand(_id);
+            return true;
+        }
+        else{
+            return false;
+        }
+        
+    }
+
+    function sellLand() public payable returns (bool){
+        // if(ob.getPostedLand() > 0) {
+        if(true) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    function buyLand() public payable returns (bool){
+        if(this.checkLiable()) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    // function checkLiable() public payable returns (bool){
+    //     if(__Neha__) {
+    //         return true;
+    //     }
+    //     else {
+    //         return false;
+    //     }
+    // }
+    function checkLiable() public payable returns (bool){
+            return true;
+    }
+
+    function isClientVerified() private view returns (bool){
+        if((a1==true)&&(a1==true)&&(a1==true)) {
+         return true;
+        }
+        else {
+         return false;
+        }
+    }
+
+    // Upload Documents, changing it to true
+    function uploadDocd1() public payable {
+        d1 = true;
+    }
+    function uploadDocd2() public payable {
+        d2 = true;
+    }
+    function uploadDocd3() public payable {
+        d3 = true;
+    }
+    function uploadDocd4() public payable {
+        d4 = true;
+    }
+
+    //Checking the STEP wise Authentication
+
+    function Auth1() public payable{
+        a1 =  true;
+    }
+    function Auth2() public payable{
+        a2 =  true;
+    }
+    function Auth3() public payable{
+        a3 =  true;
+    }
+
+}
